@@ -3,19 +3,6 @@
 
 #include <vector>
 
-struct VTG_axis_long
-{
-    long value;
-    long min;
-    long max;
-};
-
-struct VTG_touch_long
-{
-    VTG_axis_long x;
-    VTG_axis_long y;
-    VTG_axis_long z;
-};
 
 struct VTG_axis_float
 {
@@ -24,27 +11,11 @@ struct VTG_axis_float
     float max;
 };
 
-struct VTG_touch_float
+struct VTG_touch
 {
     VTG_axis_float x;
     VTG_axis_float y;
     VTG_axis_float z;
-
-};
-
-enum typeForm
-{
-    form_long,
-    form_float,
-    form_all
-};
-
-
-struct VTG_touch
-{
-    VTG_touch_float formatFloat;
-    VTG_touch_long formatLong;
-    typeForm form;
     int index;
     bool isTouch;
 };
@@ -67,12 +38,9 @@ public:
     ~VirtualTouchGrid();
 
 private:
-    VTG_axis_long tranferLong(VTG_axis_float);
-    VTG_axis_float tranferFloat(VTG_axis_long);
     
     VTG_touch get_();
     
-    void mapLong(VTG_axis_long&,VTG_axis_long&);
     void mapFloat(VTG_axis_float&,VTG_axis_float&);
 
 };
