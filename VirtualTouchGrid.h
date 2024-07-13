@@ -54,17 +54,24 @@ typedef VTG_touch (*set_VTG_touch)();
 
 class VirtualTouchGrid {
 public:
+    VirtualTouchGrid(VTG_touch notTouch);
 
     void add(set_VTG_touch touchIn);
 
     VTG_touch get();
 
+    VTG_touch notTouch;
+
+    std::vector<set_VTG_touch> listTouch;
+
+    ~VirtualTouchGrid();
+
 private:
     VTG_axis_long tranferLong(VTG_axis_float);
     VTG_axis_float tranferFloat(VTG_axis_long);
-    std::vector<set_VTG_touch> listTouch;
+    
     VTG_touch get_();
-    VTG_touch notTouch;
+    
     void mapLong(VTG_axis_long&,VTG_axis_long&);
     void mapFloat(VTG_axis_float&,VTG_axis_float&);
 

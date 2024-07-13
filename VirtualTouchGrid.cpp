@@ -1,5 +1,11 @@
 #include "VirtualTouchGrid.h"
 
+VirtualTouchGrid::VirtualTouchGrid(VTG_touch notTouch)
+{
+    this->notTouch = notTouch;
+    this->notTouch.isTouch = false;
+}
+
 void VirtualTouchGrid::add(set_VTG_touch touchIn)
 {
     listTouch.push_back(touchIn);
@@ -35,15 +41,20 @@ VTG_touch VirtualTouchGrid::get()
 
     out.isTouch = true;
     out.index = in.index;
-    
 
+    return out;
+}
+
+VirtualTouchGrid::~VirtualTouchGrid()
+{
+    listTouch.clear();
 }
 
 VTG_axis_long VirtualTouchGrid::tranferLong(VTG_axis_float in)
 {
     VTG_axis_long out;
-     out.max = in.max;
-   out.min = in.min;
+    out.max = in.max;
+    out.min = in.min;
     out.value = in.value;
     return out;
 }
