@@ -75,6 +75,11 @@ private:
     void mapLong(VTG_axis_long&,VTG_axis_long&);
     void mapFloat(VTG_axis_float&,VTG_axis_float&);
 
+    void _mapLongLong(VTG_touch&, VTG_touch&);
+    void _mapFloatFloat(VTG_touch&, VTG_touch&);
+    void _mapLongFloat(VTG_touch&, VTG_touch&);
+    void _mapFloatLong(VTG_touch&, VTG_touch&);
+
 };
 
 #endif // VIRTUALTOUCHGRID_H
