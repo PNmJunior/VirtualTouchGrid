@@ -29,6 +29,8 @@ public:
 
     void add(set_VTG_touch touchIn);
 
+    VTG_touch get(VTG_touch out);
+
     VTG_touch get();
 
     VTG_touch notTouch;

@@ -11,15 +11,13 @@ void VirtualTouchGrid::add(set_VTG_touch touchIn)
     listTouch.push_back(touchIn);
 }
 
-VTG_touch VirtualTouchGrid::get()
+VTG_touch VirtualTouchGrid::get(VTG_touch out)
 {
     VTG_touch in = get_();
-    if (in.isTouch == notTouch.isTouch)
+    if (in.isTouch == false)
     {
         return notTouch;
     }
-    
-    VTG_touch out = notTouch;
  
     mapFloat(out.x,in.x);
     mapFloat(out.y,in.y);
@@ -29,6 +27,11 @@ VTG_touch VirtualTouchGrid::get()
     out.index = in.index;
 
     return out;
+}
+
+VTG_touch VirtualTouchGrid::get()
+{
+    return get(notTouch);
 }
 
 VirtualTouchGrid::~VirtualTouchGrid()
